@@ -13,13 +13,36 @@ html, body {
 
 body {
     color: var(--text);
-    background: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 100%);
-}
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    background: #0D0D0D;
+    position: relative;
 }
 
-.animate-marquee {
-    animation: marquee 22s linear infinite;
+/* Layer 1: mobile vertical gradient (default visible) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(to bottom, #0D0D0D 0%, #1A1A1A 100%);
+    opacity: 1;
+    transition: opacity 400ms ease;
+}
+
+/* Layer 2: desktop diagonal gradient (default hidden) */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 100%);
+    opacity: 0;
+    transition: opacity 400ms ease;
+}
+
+/* Desktop: fade to the diagonal layer */
+@media (min-width: 768px) {
+    body::before { opacity: 0; }
+    body::after { opacity: 1; }
 }
