@@ -11,7 +11,6 @@ function GearImageCard({
                            href,
                            buyHref,
                            buyLabel = "View product",
-                           usage,
                        }: {
     title: string;
     image: string;
@@ -24,7 +23,10 @@ function GearImageCard({
     return (
         <div className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-[#FF8200]/60 hover:bg-white/[0.05]">
             {/* Internal navigation */}
-            <Link href={href} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF8200]/70">
+            <Link
+                href={href}
+                className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF8200]/70"
+            >
                 <div className="relative aspect-[4/3] w-full bg-black/20">
                     <Image
                         src={image}
@@ -41,8 +43,7 @@ function GearImageCard({
                                 {title}
                             </div>
 
-                            )}
-
+                            <div className="mt-1 text-xs text-white/60">{role}</div>
                         </div>
 
                         {status ? (
@@ -157,7 +158,7 @@ export default function ShoesPage() {
                         status="Race Day"
                         image="/images/gear/alphafly-3.jpg"
                         href="/running/gear/shoes#alphafly-3"
-                        buyHref="https://www.nike.com/t/alphafly-3-mens-road-racing-shoes-5gZBgL/FD8311-101?_gl=1*9i8x5n*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAvaLLBhBFEiwAYCNTf3WuNAD_U_qHcKPyjnqy8hrfQbRPxiG0QVbYEyyAHXBIqDn32cCO3BoCyKgQAvD_BwE&gclsrc=aw.ds&gbraid=0AAAAADy86kOaqf766q8r8g6HsJnbtxUb4"
+                        buyHref="https://www.nike.com/t/alphafly-3-mens-road-racing-shoes-5gZBgL/FD8311-101"
                         buyLabel="View on Nike"
                     />
 
