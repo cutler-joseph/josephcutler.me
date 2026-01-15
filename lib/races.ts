@@ -21,6 +21,7 @@ export type RaceWeekend = {
     name: string; // "runDisney Wine & Dine Race Weekend"
     dateRange?: string; // "Nov 6–9, 2025" (display only)
     location?: string;
+    status: "upcoming" | "completed";
     children: RaceLeaf[];
 };
 
