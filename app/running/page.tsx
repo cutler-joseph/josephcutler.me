@@ -111,8 +111,11 @@ function getItemStartDate(item: RaceItem) {
 }
 
 export default function RunningPage() {
-    const { upcoming, completed } = splitByStatus(raceItems);
-    const next = getNextRace(raceItems);
+    // raceItems is likely exported as `as const` (readonly). Create a mutable view for helpers.
+    const items = raceItems as unknown as RaceItem[];
+
+    const { upcoming, completed } = splitByStatus(items);
+    const next = getNextRace(items);
 
     const upcomingSorted = [...upcoming].sort((a, b) =>
         getItemStartDate(a).localeCompare(getItemStartDate(b))
@@ -134,7 +137,7 @@ export default function RunningPage() {
             <section className="mt-8">
                 <div className="mb-3 flex items-end justify-between gap-3">
                     <h2 className="text-xl font-semibold text-white">Next race</h2>
-                    <div className="text-xs text-white/60"></div>
+                    <div className="text-xs text-white/60" />
                 </div>
 
                 {next ? (
@@ -194,9 +197,7 @@ export default function RunningPage() {
                             <div className="overflow-hidden">
                                 <div className="px-5 pb-5">
                                     {upcomingSorted.length === 0 ? (
-                                        <div className="text-sm text-white/70">
-                                            Nothing upcoming yet.
-                                        </div>
+                                        <div className="text-sm text-white/70">Nothing upcoming yet.</div>
                                     ) : (
                                         <div className="grid gap-3">
                                             {upcomingSorted.map((item) =>
