@@ -30,7 +30,7 @@ export type RaceItem = RaceLeaf | RaceWeekend;
  * Your single source of truth.
  * Add races here over time. Everything else renders from this.
  */
-export const raceItems = [
+export const raceItems: RaceItem[] = [
     {
         type: "race",
         slug: "2025-orlando-magic-5k",
@@ -175,7 +175,7 @@ export const raceItems = [
             },
         ],
     },
-] as const;
+];
 
 
 

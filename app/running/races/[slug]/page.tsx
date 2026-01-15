@@ -2,7 +2,7 @@ import Link from "next/link";
 import { raceItems, type RaceItem } from "@/lib/races";
 
 function findRaceBySlug(slug: string) {
-    for (const item of raceItems as RaceItem[]) {
+    for (const item of raceItems) {
         if (item.type === "race" && item.slug === slug) return item;
 
         if (item.type === "weekend") {
@@ -45,7 +45,6 @@ export default async function RacePage({
 
     return (
         <main className="mx-auto w-full max-w-5xl px-4 pb-16 pt-0">
-            {/* Header */}
             <section className="space-y-3">
                 <div className="text-xs text-white/60">Race page (placeholder)</div>
                 <h1 className="text-4xl font-bold">{race.name}</h1>
@@ -55,7 +54,6 @@ export default async function RacePage({
                 </p>
             </section>
 
-            {/* Quick meta */}
             <section className="mt-10 grid gap-4 md:grid-cols-3">
                 <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                     <div className="text-xs text-white/60">Date</div>
@@ -75,7 +73,6 @@ export default async function RacePage({
                 </div>
             </section>
 
-            {/* CTA */}
             <div className="mt-10">
                 <Link
                     href="/running"
