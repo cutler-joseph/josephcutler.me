@@ -40,12 +40,7 @@ function GearImageCard({
                             <div className="truncate text-sm font-semibold text-white transition group-hover:text-[#FF8200]">
                                 {title}
                             </div>
-                            <div className="mt-1 text-xs text-white/60">{role}</div>
 
-                            {usage && (
-                                <div className="mt-1 text-[11px] text-white/50">
-                                    {usage}
-                                </div>
                             )}
 
                         </div>
@@ -154,7 +149,6 @@ export default function ShoesPage() {
                         href="/running/gear/shoes#zoom-fly-6"
                         buyHref="https://www.nike.com/t/zoom-fly-6-mens-road-racing-shoes-wn2ALjkm/FN8454-104"
                         buyLabel="View on Nike"
-                        usage={"Used in 5 races"}
                     />
 
                     <GearImageCard
